@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farmer Registration | Monthly Subscription</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pbs0eFQctg6vW3ejjQbvgLP6CGZ4N0ry3zykQ7+Aj9jJDRltNxE2whelyNKzqm8l" crossorigin="anonymous" />
+  <style>
+    body {
+      background: linear-gradient(120deg, #8bc34a 0%, #4caf50 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+      border: 2px solid black;
+      padding: 2px;
+    }
+    .form-header {
+      background-color:grey;
+      color: #fff;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      padding: 1rem 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="card overflow-hidden">
+          <div class="form-header">
+            <h2 class="h4 mb-1">Farmer Registration</h2>
+            <p class="mb-0">Join the website and subscribe for monthly agricultural support services.</p>
+          </div>
+          <div class="card-body p-4">
+            <form id="farmerRegistrationForm" novalidate>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="e.g., John Doe" required>
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="farmName" class="form-label">Farm Name</label>
+                  <input type="text" class="form-control" id="farmName" placeholder="e.g., Green Acres" required>
+                  <div class="invalid-feedback">Please enter your farm name.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="+254 700 000000" required>
+                  <div class="invalid-feedback">Please enter your phone number.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="location" class="form-label">Farm Location</label>
+                  <input type="text" class="form-control" id="location" placeholder="County, sub-county" required>
+                  <div class="invalid-feedback">Please enter your farm location.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="cropType" class="form-label">Primary Crop Type</label>
+                  <input type="text" class="form-control" id="cropType" placeholder="e.g., Maize, Vegetables" required>
+                  <div class="invalid-feedback">Please enter your primary crop type.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" required minlength="8" placeholder="At least 8 characters">
+                  <div class="invalid-feedback">Please enter a secure password (min 8 characters).</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="confirmPassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirmPassword" required minlength="8" placeholder="Repeat your password">
+                  <div class="invalid-feedback" id="confirmPasswordFeedback">Passwords must match.</div>
+                </div>
+              </div>
+
+              <hr class="my-4">
+              <h5>Subscription Plan</h5>
+              <p class="text-muted">Monthly service for farm advisory, market link-up, soil tips, and pest control.</p>
+
+              <div class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="plan" id="planStandard" value="standard" checked>
+                  <label class="form-check-label" for="planStandard">Standard - ksh100 / month</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="plan" id="planPremium" value="premium">
+                  <label class="form-check-label" for="planPremium">Premium - ksh150 / month (priority support)</label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="paymentMethod" class="form-label">Payment Method</label>
+                <select class="form-select" id="paymentMethod" required>
+                  <option value="">Choose...</option>
+                  <option value="mpesa">Mpesa</option>
+                  <option value="card">Debit/Credit Card</option>
+                  <option value="bank">Bank Transfer</option>
+                </select>
+                <div class="invalid-feedback">Please select a payment method.</div>
+              </div>
+
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="acceptTerms" required>
+                <label class="form-check-label" for="acceptTerms">
+                  I agree to the terms, privacy policy, and subscription charges.
+                </label>
+                <div class="invalid-feedback">You must agree before submitting.</div>
+              </div>
+
+              <button class="btn btn-success w-100" type="submit">Register and Subscribe</button>
+            </form>
+
+            <div id="submitMessage" class="alert alert-success mt-4 d-none" role="alert">
+              Registration submitted successfully. You will receive instructions on payment and account activation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-hhx1oxcK9saztL7LKcs8HAFs+Gqx9aHhEds+kFbm3J+QTFpOJnolkPVcZsFDbX1T" crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('farmerRegistrationForm');
+      const password = document.getElementById('password');
+      const confirmPassword = document.getElementById('confirmPassword');
+      const confirmPasswordFeedback = document.getElementById('confirmPasswordFeedback');
+      const submitMessage = document.getElementById('submitMessage');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (password.value !== confirmPassword.value) {
+          confirmPassword.setCustomValidity('Passwords do not match');
+          confirmPasswordFeedback.textContent = 'Passwords do not match.';
+        } else {
+          confirmPassword.setCustomValidity('');
+        }
+
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+
+        submitMessage.classList.remove('d-none');
+        submitMessage.textContent = 'Thanks! Your farmer profile and monthly subscription request were received. We will contact you soon.';
+        form.reset();
+        form.classList.remove('was-validated');
+      }, false);
+
+      confirmPassword.addEventListener('input', function () {
+        if (confirmPassword.value !== password.value) {
+          confirmPassword.setCustomValidity('Passwords do not match');
+        } else {
+          confirmPassword.setCustomValidity('');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
